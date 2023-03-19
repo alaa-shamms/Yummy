@@ -75,7 +75,7 @@ function displayMeal() {
         temp+=
         `
         <div class="col-md-3 pointer">
-            <div class="meal position-relative overflow-hidden text-dark rounded-3" onclick="getDetails(${element.idMeal})">
+            <div class="meal position-relative overflow-hidden text-dark rounded-3" onclick="getDetails(${element.idMeal})" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <img src="${element.strMealThumb}" class="w-100" alt="">
                 <div class="over-lay position-absolute d-flex align-items-center w-100 h-100 ">
                     <h2 class="p-3">${element.strMeal}</h2>
@@ -91,6 +91,7 @@ function displayMeal() {
 // display of categories
 let categoriesList =[]
 document.getElementById('categories').addEventListener('click',async function getCategories() {
+    
     document.querySelector('#contact_area').classList.add('d-none')
 
 
@@ -269,7 +270,7 @@ function displaySpecialMeal() {
         temp+=
         `
         <div class="col-md-3 pointer">
-            <div class="meal position-relative overflow-hidden text-dark rounded-3" onclick="getDetails(${element.idMeal})">
+            <div class="meal position-relative overflow-hidden text-dark rounded-3" onclick="getDetails(${element.idMeal})" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <img src="${element.strMealThumb}" class="w-100" alt="">
                 <div class="over-lay position-absolute d-flex align-items-center w-100 h-100 ">
                     <h2 class="p-3">${element.strMeal}</h2>
@@ -307,7 +308,7 @@ function displaySpecialArea() {
         temp+=
         `
         <div class="col-md-3 pointer">
-            <div class="meal position-relative overflow-hidden text-dark rounded-3" onclick="getDetails(${element.idMeal})">
+            <div class="meal position-relative overflow-hidden text-dark rounded-3" onclick="getDetails(${element.idMeal})" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <img src="${element.strMealThumb}" class="w-100" alt="">
                 <div class="over-lay position-absolute d-flex align-items-center w-100 h-100 ">
                     <h2 class="p-3">${element.strMeal}</h2>
@@ -345,7 +346,7 @@ function displaySpecialIngredient() {
         temp+=
         `
         <div class="col-md-3 pointer">
-            <div class="meal position-relative overflow-hidden text-dark rounded-3" onclick="getDetails(${element.idMeal})">
+            <div class="meal position-relative overflow-hidden text-dark rounded-3" onclick="getDetails(${element.idMeal})" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <img src="${element.strMealThumb}" class="w-100" alt="">
                 <div class="over-lay position-absolute d-flex align-items-center w-100 h-100 ">
                     <h2 class="p-3">${element.strMeal}</h2>
@@ -372,7 +373,7 @@ let mealDetails=[]
 async function getDetails(mealId) {
 
 
-   document.getElementById("rowData").innerHTML=""
+//    document.getElementById("rowData").innerHTML=""
 
     $('.inner-loading-page').fadeIn(500)
 
@@ -442,7 +443,9 @@ function displayDetails() {
         </div>
         `
     });
-    document.getElementById("rowData").innerHTML=temp
+
+    document.getElementById("modal_data").innerHTML=temp
+    console.log(temp)
 
 }
 
@@ -608,44 +611,7 @@ document.getElementById('contact').addEventListener('click', function () {
 
 console.log('con')
      document.querySelector('#contact_area').classList.remove('d-none')
-//      document.getElementById('rowData').innerHTML=
-//      `<div class="container w-50 vh-100 d-flex justify-content-center align-items-center d-none" id="contact_area">
-//      <div class="row px-2 py-5 g-3 ">
-//          <h1 class="text-center">Contact Us</h1>
-//          <div class="col-md-6">
- 
-//          <input id="name_input" type="text" class="form-control bg-transparent  text-white " placeholder="Enter Your Name" oninput="validatename()" onkeyup="enterData()">
-//          <p id="NameAlert" class="text-white bg-danger mt-0 d-none text-center rounded-pill pb-1 mt-3">please Special characters and numbers not allowed </p>
- 
-//          </div>
-//          <div class="col-md-6">
-//              <input id="email_input" type="text" class="form-control bg-transparent text-white" placeholder="Enter Your Email" oninput="validateEmail()" onkeyup="enterData()">
-//              <p id="emailAlert" class="text-white bg-danger mt-0 d-none text-center rounded-pill pb-1 mt-3">please Email not valid <br> *exemple@yyy.zzz  </p>
 
-//          </div>
-//          <div class="col-md-6">
-//              <input id="phone_input"type="text" class="form-control bg-transparent text-white" placeholder="Enter Your Phone" oninput="validatePhone()" onkeyup="enterData()">
-//              <p id="phoneAlert" class="text-white bg-danger mt-0 d-none text-center rounded-pill pb-1 mt-3">please Enter valid Phone Number </p>
-
-//          </div>
-//          <div class="col-md-6">
-//              <input id="age_input" type="number" class="form-control bg-transparent text-white" placeholder="Enter Your Age" oninput="validateAge()" onkeyup="enterData()">
-//              <p id="ageAlert" class="text-white bg-danger mt-0 d-none text-center rounded-pill pb-1 mt-3">please Enter valid age  </p>
-
-//          </div>
-//          <div class="col-md-6">
-//              <input id="password_input" type="text" class="form-control bg-transparent text-white" placeholder="Enter Your Password" oninput="validatePass()" onkeyup="enterData()">
-//              <p id="passwordAlert" class="text-white bg-danger mt-0 d-none text-center rounded-pill pb-2 mt-3">please Enter valid password *Minimum eight characters, at least one letter and one number:* </p>
-
-//          </div>
-//          <div class="col-md-6">
-//              <input id="repassword_input" type="text" class="form-control bg-transparent text-white" placeholder="Repassword" oninput="validateRePass()" onkeyup="enterData()">
-//              <p id="repasswordAlert" class="text-white bg-danger mt-0 d-none text-center rounded-pill pb-1 mt-3">please Enter valid repassword  </p>
-
-//          </div>
-//          <button disabled class="btn btn-outline-danger m-auto mt-3 submit">submit</button>
-//      </div>
-//  </div> `
 
 
     document.getElementById('serchParent').innerHTML=''
@@ -904,3 +870,5 @@ for (var i = 0; i < allLinks.length; i++) {
     this.className += " active";
   });
 } 
+
+
