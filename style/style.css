@@ -1,0 +1,133 @@
+*{
+    box-sizing: border-box;
+}
+body
+{
+    background-color: rgb(13,13,13);
+    color: #f9f6f6;
+    overflow: hidden;
+}
+.loading-page
+{
+    z-index: 555;
+    display: flex;
+    background-color: rgb(13,13,13);
+
+}
+.inner-loading-page
+{
+    position: absolute;
+    z-index: 55;
+    display: flex;
+    height: auto;
+    background-color: rgb(13,13,13);
+
+}
+/* start of nav side */
+.right-nav
+{
+    width: 60px;
+}
+.left-nav
+{
+    background-color: rgb(13,13,13);
+
+}
+ul li,i
+{
+    cursor: pointer;
+    transition: all 0.5s;
+}
+ul
+{
+    margin-top: 25px;
+    
+}
+li
+{
+    margin-top: 10px;
+    background-color: tomato;
+
+}
+.active
+{
+    background-color: transparent;
+}
+.side-nav-menu
+{
+    z-index: 5555;
+}
+/* end of nav side */
+
+/* start of meals */
+.over-lay
+{
+    background-color: rgb(255,255,255,0.7);
+    top: 100%;
+    transition: all 0.5s;
+}
+.meal:hover .over-lay
+{
+    top:0
+}
+/* end of meals */
+.h2_ingr
+{
+ font-size: 28px;
+font-weight: 500;
+line-height: 33.6px;
+margin-bottom: 8px
+}
+.p2_ingr
+{
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+margin-bottom: 16px
+}
+.pointer
+{
+    cursor: pointer;
+}
+.bg-recip
+{
+background-color: rgb(207, 244, 252);
+box-sizing: border-box;
+color: rgb(5, 81, 96);
+font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+width: fit-content;
+padding: 10px;
+border-radius: 10px;
+}
+.bg-tags
+{
+background-color: rgb(248, 215, 218);
+box-sizing: border-box;
+color: rgb(132, 32, 41);
+font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+width: fit-content;
+padding: 10px;
+border-radius: 10px;
+}
+
+a
+{
+    text-decoration: none;
+    color: white !important;
+}
+.submit
+{
+    width: 150px;
+}
+
+.container
+{
+    width: 80%;
+    margin: auto;
+}

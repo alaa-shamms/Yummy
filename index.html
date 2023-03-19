@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="about any meal you want">
+    <meta name="author" content="Alaa shamms">
+    <meta name="keywords" content="About Meals, search meals, area,ingredients,Contact Us">
+    <title>Yummy</title>
+    <!-- link for Website icon -->
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+    <!-- link for Font awesome -->
+    <link rel="stylesheet" href="style/all.min.css">
+    <!-- link for Bootstrap -->
+    <link rel="stylesheet" href="style/bootstrap.min.css">
+    <!-- link for Bootstrap -->
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    
+<!-----------------------------------------------------------  start of contact  ------------------------------------------------------>
+
+
+<div class="contact-part" id="contact_part">
+
+     <div class="container w-50 vh-110 d-flex justify-content-center align-items-center d-none" id="contact_area">
+        <div class="row px-2 py-5 g-3 ">
+            <h1 class="text-center">Contact Us</h1>
+            <div class="col-md-6">
+    
+            <input id="name_input" type="text" class="form-control bg-transparent  text-white " placeholder="Enter Your Name" oninput="validatename()" onkeyup="enterData()">
+            <p id="NameAlert" class="text-white bg-danger mt-0 d-none text-center rounded-pill pb-1 mt-3">please Special characters and numbers not allowed </p>
+    
+            </div>
+            <div class="col-md-6">
+                <input id="email_input" type="text" class="form-control bg-transparent text-white" placeholder="Enter Your Email" oninput="validateEmail()" onkeyup="enterData()">
+                <p id="emailAlert" class="text-white bg-danger mt-0 d-none text-center rounded-pill pb-1 mt-3">please Email not valid <br> *exemple@yyy.zzz  </p>
+
+            </div>
+            <div class="col-md-6">
+                <input id="phone_input"type="text" class="form-control bg-transparent text-white" placeholder="Enter Your Phone" oninput="validatePhone()" onkeyup="enterData()">
+                <p id="phoneAlert" class="text-white bg-danger mt-0 d-none text-center rounded-pill pb-1 mt-3">please Enter valid Phone Number </p>
+
+            </div>
+            <div class="col-md-6">
+                <input id="age_input" type="number" class="form-control bg-transparent text-white" placeholder="Enter Your Age" oninput="validateAge()" onkeyup="enterData()">
+                <p id="ageAlert" class="text-white bg-danger mt-0 d-none text-center rounded-pill pb-1 mt-3">please Enter valid age  </p>
+
+            </div>
+            <div class="col-md-6">
+                <input id="password_input" type="text" class="form-control bg-transparent text-white" placeholder="Enter Your Password" oninput="validatePass()" onkeyup="enterData()">
+                <p id="passwordAlert" class="text-white bg-danger mt-0 d-none text-center rounded-pill pb-2 mt-3">please Enter valid password *Minimum eight characters, at least one letter and one number:* </p>
+
+            </div>
+            <div class="col-md-6">
+                <input id="repassword_input" type="text" class="form-control bg-transparent text-white" placeholder="Repassword" oninput="validateRePass()" onkeyup="enterData()">
+                <p id="repasswordAlert" class="text-white bg-danger mt-0 d-none text-center rounded-pill pb-1 mt-3">please Enter valid repassword  </p>
+
+            </div>
+            <button disabled class="btn btn-outline-danger m-auto mt-3 submit">submit</button>
+        </div>
+    </div> 
+
+</div>
+
+<!-----------------------------------------------------------  end of contact  -------------------------------------------------------->
+
+<div class="loading-page position-fixed top-0 bottom-0 start-0 end-0   justify-content-center align-items-center">
+    <i class="fa fa-spinner fa-spin fa-4x"></i>
+</div>
+
+
+<!-----------------------------------------------------------  start of side nav  --------------------------------------------------->
+<div class="side-nav-menu h-100  position-fixed d-flex top-0 bottom-0 ">
+    <div class="left-nav d-flex justify-content-between flex-column vh-100 p-3">
+        <div class="links">
+            <ul class="list-unstyled">
+                <li id="search" class="nav-link p-2 position-relative">search</li>
+                <li id="categories" class="nav-link p-2 position-relative">categories</li>
+                <li id="area" class="nav-link p-2 position-relative ">area</li>
+                <li id="ingredients" class="nav-link p-2 position-relative">ingredients</li>
+                <li id="contact"class="nav-link  p-2 position-relative">contact us </li>
+            </ul>
+        </div>
+
+        <div class="media-icons">
+            <i class="fa-brands fa-facebook p-1"></i>
+            <i class="fa-brands fa-twitter p-1"></i>
+            <i class="fa-solid fa-globe p-1"></i>
+            <p>Copyright Â© 2019 All Rights
+            <br> Reserved.</p>
+        </div>
+
+    </div>
+    <div class="right-nav d-flex flex-column justify-content-between py-4 bg-white text-black text-center">
+        <img src="images/logo.png" class="w-75 ms-1" alt="logo image">
+        <i class="fa-solid open-close-icon fa-2x fa-align-justify nav-show"></i>
+        <div>
+            <i class="fa-solid fa-globe"></i>
+            <br>
+            <i class="fa-solid fa-share-nodes"></i>
+        </div>
+    </div>
+</div>
+<!-----------------------------------------------------------  end of side nav  ----------------------------------------------------->
+
+
+
+
+
+
+
+<!-----------------------------------------------------------  start of search  ------------------------------------------------------>
+<div class="container">
+    <div class="row px-2 py-5 g-4 justify-content-center"  id="serchParent" >
+
+        
+
+    </div>
+</div>
+<!-----------------------------------------------------------  end of search  -------------------------------------------------------->
+
+
+<div class="position-relative vh-0">
+
+
+<!-----------------------------------------------------------  start of meals  ------------------------------------------------------>
+<div class="container">
+    <div class="row px-2 py-4 g-4 justify-content-center" id="rowData" >
+
+
+    </div>
+</div>
+<!-----------------------------------------------------------  end of meals  -------------------------------------------------------->
+
+
+        <div class="inner-loading-page  top-0 bottom-0 start-0 end-0    justify-content-center align-items-center">
+            <i class="fa fa-spinner fa-spin fa-4x"></i>
+        </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
