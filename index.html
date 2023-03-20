@@ -48,7 +48,7 @@
 
             </div>
             <div class="col-md-6">
-                <input id="password_input" type="text" class="form-control bg-transparent text-white" placeholder="Enter Your Password" oninput="validatePass()" onkeyup="enterData()">
+                <input id="password_input" type="text" class="form-control bg-transparent text-white" placeholder="Enter Your Password" oninput="validatePass()" onkeyup="enterData()" >
                 <p id="passwordAlert" class="text-white bg-danger mt-0 d-none text-center rounded-pill pb-2 mt-3">please Enter valid password *Minimum eight characters, at least one letter and one number:* </p>
 
             </div>
@@ -113,7 +113,22 @@
 <div class="container">
     <div class="row px-2 py-5 g-4 justify-content-center"  id="serchParent" >
 
-        
+        <div class="search-part d-none" id="show_hide_search">
+            <div class="row px-2 py-5">
+         
+                <div class="col-md-6">
+                    <input id="searchName" type="text" class="form-control bg-transparent text-warning" placeholder="Search By Name" onkeyup='searchByName(this.value)' oninput="validateSearchName()" >
+                    <p id="searchNameAlert" class="text-white bg-danger mt-0 d-none text-center rounded-pill pb-1 mt-3">You Shoud Enter only Characters  </p>
+         
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control bg-transparent text-danger" id='f_letter_input' placeholder="Search By Fist Letter" onkeyup='searchByfirstLetter(this.value)' maxlength="1"  oninput="validateSearchNameLetter()">
+                    <p id="searchNameletterAlert" class="text-white bg-danger mt-0 d-none text-center rounded-pill pb-1 mt-3">You Shoud Enter only one Character  </p>
+
+                </div>
+                
+            </div>
+         </div>
 
     </div>
 </div>

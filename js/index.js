@@ -91,6 +91,8 @@ function displayMeal() {
 // display of categories
 let categoriesList =[]
 document.getElementById('categories').addEventListener('click',async function getCategories() {
+
+    $('#exampleModal').modal('hide');
     
     document.querySelector('#contact_area').classList.add('d-none')
 
@@ -100,7 +102,7 @@ document.getElementById('categories').addEventListener('click',async function ge
 
     $('.inner-loading-page').fadeIn(500)
 
-    document.getElementById('serchParent').innerHTML=''
+    document.getElementById('show_hide_search').classList.add('d-none')
     $('.side-nav-menu').animate({left: -240},400)
     $('.nav-show').removeClass('fa-x')
     $('.nav-show').addClass('fa-align-justify')
@@ -146,6 +148,8 @@ function displayCategories() {
 // display of Area
 let areaList =[]
 document.getElementById('area').addEventListener('click',async function getArea() {
+    $('#exampleModal').modal('hide');
+
     document.querySelector('#contact_area').classList.add('d-none')
 
 
@@ -153,11 +157,10 @@ document.getElementById('area').addEventListener('click',async function getArea(
 
     $('.inner-loading-page').fadeIn(500)
 
-    document.getElementById('serchParent').innerHTML=''
+    document.getElementById('show_hide_search').classList.add('d-none')
     $('.side-nav-menu').animate({left: -240},400)
     $('.nav-show').removeClass('fa-x')
     $('.nav-show').addClass('fa-align-justify')
-    // document.getElementById('contact_part').innerHTML=''
 
 
 
@@ -165,7 +168,7 @@ document.getElementById('area').addEventListener('click',async function getArea(
     let areaApi= await fetch(`https://www.themealdb.com/api/json/v1/1/list.php?a=list`)
     let areaData=await areaApi.json()
     areaList=areaData.meals
-    console.log(areaData.meals)
+    // console.log(areaData.meals)
     displayArea()
     $('.inner-loading-page').fadeOut(500)
     $('body').css("overflow","vissible")
@@ -196,6 +199,9 @@ function displayArea() {
 let ingrList =[]
 
 document.getElementById('ingredients').addEventListener('click',async function getIngr() {
+
+    $('#exampleModal').modal('hide');
+
     document.querySelector('#contact_area').classList.add('d-none')
 
     document.getElementById("rowData").innerHTML=""
@@ -203,7 +209,7 @@ document.getElementById('ingredients').addEventListener('click',async function g
     $('.inner-loading-page').fadeIn(500)
 
 
-    document.getElementById('serchParent').innerHTML=''
+    document.getElementById('show_hide_search').classList.add('d-none')
     $('.side-nav-menu').animate({left: -240},400)
     $('.nav-show').removeClass('fa-x')
     $('.nav-show').addClass('fa-align-justify')
@@ -255,7 +261,7 @@ async function getSpecialCategory(Category) {
     let api=await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${Category}`)
     let apiData=await api.json()
     spcialcat=apiData.meals
-console.log(apiData.meals)
+// console.log(apiData.meals)
 displaySpecialMeal()
 $('.inner-loading-page').fadeOut(500)
 
@@ -294,7 +300,7 @@ async function getSpecialArea(Area) {
     let api=await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${Area}`)
     let apiData=await api.json()
     spcialArea=apiData.meals
-console.log(apiData.meals)
+// console.log(apiData.meals)
 displaySpecialArea()
 $('.inner-loading-page').fadeOut(500)
 
@@ -331,7 +337,7 @@ async function getSpecialIngredient(ingredient) {
     let api=await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`)
     let apiData=await api.json()
     spcialIngredient=apiData.meals
-console.log(apiData.meals)
+// console.log(apiData.meals)
 displaySpecialIngredient()
 $('.inner-loading-page').fadeOut(500)
 
@@ -380,7 +386,7 @@ async function getDetails(mealId) {
     let api=await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
     let apiData=await api.json()
     mealDetails=apiData.meals
-console.log(apiData.meals)
+// console.log(apiData.meals)
 
 displayDetails()
 $('.inner-loading-page').fadeOut(500)
@@ -445,7 +451,6 @@ function displayDetails() {
     });
 
     document.getElementById("modal_data").innerHTML=temp
-    console.log(temp)
 
 }
 
@@ -462,6 +467,8 @@ function displayDetails() {
 
 document.getElementById('search').addEventListener('click', function () {
     
+    $('#exampleModal').modal('hide');
+
     document.querySelector('#contact_area').classList.add('d-none')
 
 
@@ -473,21 +480,7 @@ document.getElementById('search').addEventListener('click', function () {
     // document.getElementById('contact_part').innerHTML=''
 
 
-    document.getElementById('serchParent').innerHTML=
-    `
-    <div class="search-part">
-   <div class="row px-2 py-5">
-
-       <div class="col-md-6">
-           <input type="text" class="form-control bg-transparent text-warning" placeholder="Search By Name" onkeyup='searchByName(this.value)' >
-       </div>
-       <div class="col-md-6">
-           <input type="text" class="form-control bg-transparent text-danger" id='f_letter_input' placeholder="Search By Fist Letter" onkeyup='searchByfirstLetter(this.value)' maxlength="1">
-       </div>
-       
-   </div>
-</div>
-    `
+    document.getElementById('show_hide_search').classList.remove('d-none')
     
     document.getElementById('rowData').innerHTML=''
 })
@@ -497,6 +490,7 @@ document.getElementById('search').addEventListener('click', function () {
 
 let searchList=[]
 async function searchByName(seachItem) {
+    
     document.getElementById("rowData").innerHTML=""
 
     $('.inner-loading-page').fadeIn(500)
@@ -504,7 +498,6 @@ async function searchByName(seachItem) {
     let mealApi= await fetch(`https://themealdb.com/api/json/v1/1/search.php?s=${seachItem}`)
     let mealData=await mealApi.json()
     searchList=mealData.meals
-    console.log(searchList)
     if(searchList!=null)
     {
         displaySearchMeal()
@@ -527,7 +520,7 @@ function displaySearchMeal() {
         temp+=
         `
         <div class="col-md-3 pointer">
-            <div class="meal position-relative overflow-hidden text-dark rounded-3" onclick="getDetails(${element.idMeal})">
+            <div class="meal position-relative overflow-hidden text-dark rounded-3" onclick="getDetails(${element.idMeal})" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <img src="${element.strMealThumb}" class="w-100" alt="">
                 <div class="over-lay position-absolute d-flex align-items-center w-100 h-100 ">
                     <h2 class="p-3">${element.strMeal}</h2>
@@ -559,7 +552,7 @@ async function searchByfirstLetter(seachLetter) {
     let mealApi= await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?f=${seachLetter}`)
     let mealData=await mealApi.json()
     searchMealLetter=mealData.meals
-    console.log(searchMealLetter)
+    // console.log(searchMealLetter)
     if(searchMealLetter!=null)
     {
         displaySearchMealLetter()
@@ -583,7 +576,7 @@ function displaySearchMealLetter() {
         temp+=
         `
         <div class="col-md-3 pointer">
-            <div class="meal position-relative overflow-hidden text-dark rounded-3" onclick="getDetails(${element.idMeal})">
+            <div class="meal position-relative overflow-hidden text-dark rounded-3" onclick="getDetails(${element.idMeal})" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <img src="${element.strMealThumb}" class="w-100" alt="">
                 <div class="over-lay position-absolute d-flex align-items-center w-100 h-100 ">
                     <h2 class="p-3">${element.strMeal}</h2>
@@ -602,6 +595,8 @@ function displaySearchMealLetter() {
 // contact
 
 document.getElementById('contact').addEventListener('click', function () {
+    $('#exampleModal').modal('hide');
+
     
     document.getElementById('rowData').innerHTML=''
 
@@ -609,12 +604,12 @@ document.getElementById('contact').addEventListener('click', function () {
     $('.nav-show').removeClass('fa-x')
     $('.nav-show').addClass('fa-align-justify')
 
-console.log('con')
+// console.log('con')
      document.querySelector('#contact_area').classList.remove('d-none')
 
 
 
-    document.getElementById('serchParent').innerHTML=''
+     document.getElementById('show_hide_search').classList.add('d-none')
     
 })
 
@@ -790,6 +785,7 @@ function validateRePass()
 
 
 
+
 function enterData()
 {
     userInputsValidation()
@@ -872,3 +868,53 @@ for (var i = 0; i < allLinks.length; i++) {
 } 
 
 
+
+
+let searchName=document.getElementById('searchName')
+let searchNameAlert=document.getElementById('searchNameAlert')
+ 
+function validateSearchName()
+{
+    var regex=/[a-zA-z]/
+    if(regex.test(searchName.value)==true)
+    {
+
+      searchNameAlert.classList.add('d-none')
+
+    //   return true
+  
+  
+    }
+    else
+    {
+      searchNameAlert.classList.remove('d-none')
+
+    //   return false
+      
+    }
+
+}
+let f_letter_input=document.getElementById('f_letter_input')
+let searchNameletterAlert=document.getElementById('searchNameletterAlert')
+ 
+function validateSearchNameLetter()
+{
+    var regex=/[a-zA-z]/
+    if(regex.test(f_letter_input.value)==true)
+    {
+
+      searchNameletterAlert.classList.add('d-none')
+
+    //   return true
+  
+  
+    }
+    else
+    {
+      searchNameletterAlert.classList.remove('d-none')
+
+    //   return false
+      
+    }
+
+}
