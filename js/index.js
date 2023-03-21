@@ -467,6 +467,9 @@ function displayDetails() {
 
 document.getElementById('search').addEventListener('click', function () {
     
+f_letter_input.value=''
+searchName.value=''
+    
     $('#exampleModal').modal('hide');
 
     document.querySelector('#contact_area').classList.add('d-none')
@@ -866,7 +869,6 @@ for (var i = 0; i < allLinks.length; i++) {
     this.className += " active";
   });
 } 
-
 
 
 
